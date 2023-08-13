@@ -37,10 +37,6 @@ The watch shall rotate on itself, scale up and down, and rotate around an arbitr
 
 ![cdiag](./public/classDiagram_C.png)
 
-## Screenshot
-
-![screenshot](./public/App_Screenshot.png)
-
 # Application demo
 
 ![appDemo](./public/Application_demo.gif)
