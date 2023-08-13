@@ -39,11 +39,19 @@ The watch shall rotate on itself, scale up and down, and rotate around an arbitr
 
 ## Screenshot
 
+<<<<<<< HEAD
 ![screenshot](./public/App_Screenshot.png)
 
 # Application demo
 
 ![appDemo](./public/Application_demo.gif)
+=======
+![screenshot](./public/App-Screenshot.png)
+
+# Application demo
+
+![appDemo](./public/Applicationdemo.gif)
+>>>>>>> ea6c24b2d1e54cd0640aed05506d52ea3cd34b06
 
 ## Instal & Run Project
 ```javascript
