@@ -33,25 +33,17 @@ editable: the “increase” button does nothing
 The watch shall rotate on itself, scale up and down, and rotate around an arbitrary point (randomly defined at page load or from a user input field)
 - Extend the class diagram
 
-## Project Class Diagram
+## Project Class Diagram 
 
 ![cdiag](./public/classDiagram_C.png)
 
 ## Screenshot
 
-<<<<<<< HEAD
 ![screenshot](./public/App_Screenshot.png)
 
 # Application demo
 
 ![appDemo](./public/Application_demo.gif)
-=======
-![screenshot](./public/App-Screenshot.png)
-
-# Application demo
-
-![appDemo](./public/Applicationdemo.gif)
->>>>>>> ea6c24b2d1e54cd0640aed05506d52ea3cd34b06
 
 ## Instal & Run Project
 ```javascript
