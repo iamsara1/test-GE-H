@@ -4,7 +4,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: './src/index.ts',
   devtool: 'source-map',
-  target: 'node',
   module: {
     rules: [
       {
@@ -32,6 +31,6 @@ module.exports = {
   })],
   devServer: {
     host: '0.0.0.0',
-    port: '1234',
+    port: '1900',
   }
 };

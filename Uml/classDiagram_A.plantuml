@@ -1,0 +1,30 @@
+@startuml classDiagram_A
+scale 5
+
+class Watch {
+  - watchId: number
+  - time: Time
+  - modeValue: number
+  - lightValue: boolean
+  + getWatchId(): number
+  + getCurrentTime(): string
+  + toggleMode(): void
+  + toggleLight(): void
+  + increaseTime(): void
+  + getLightValue(): boolean
+  + getModeValue(): number
+}
+
+class Time {
+  - hour: number
+  - minute: number
+  - secoud: number  
+  + setTime(newtime: Date)
+  + addHours(hours: number): void
+  + addMinutes(minutes: number): void
+  + getTimetoString(): string
+}
+
+Watch *-- Time 
+
+@enduml

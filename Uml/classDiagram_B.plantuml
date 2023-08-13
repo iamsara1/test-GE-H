@@ -1,0 +1,48 @@
+@startuml classDiagram_B
+scale 5
+
+class Watch {
+  - watchId: number;
+  - time: Time
+  - modeValue: number
+  - lightValue: boolean
+  + getWatchId(): number
+  + getCurrentTime(): string
+  + toggleMode(): void
+  + toggleLight(): void
+  + increaseTime(): void
+  + getLightValue(): boolean
+  + getModeValue(): number
+  + reset(): void
+  + toggleTimeFormat(): void
+  + updateWatchDisplay(): { watchId: number; currentTime: string }
+}
+
+class Time {
+  - hour: number
+  - minute: number
+  - secoud: number  
+  - timeZone: number
+  - timeFormat: string
+  + setTime(newtime: Date)
+  + setTimeFormat(timeFormat: string): void
+  + addHours(hours: number): void
+  + addMinutes(minutes: number): void
+  + getTimeZone(): number
+  + getTimeFormat(): string
+  + getTimetoString(hourFormatted ?: number, period ?: string): string
+  + getFormattedTime(): string
+  + updateWatchDisplay(): void
+}
+
+class WatchContainer {
+  - watches: Watch[]
+  - watchesDiv: HTMLElement
+  + addWatchToContainer(newWatch: Watch, timeZone : number) : void
+  + updateTimeForAllWatches(): void
+}
+
+Watch *-- Time 
+WatchContainer o--> "1..*" Watch
+
+@enduml

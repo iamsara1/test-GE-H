@@ -1,0 +1,116 @@
+@startuml classDiagram_C
+scale 2
+
+class WatchContainer {
+  - watches: Watch[]
+  - watchesDiv: HTMLElement
+  + addWatchToContainer(newWatch: Watch, timeZone: number): void
+  + updateTimeForAllWatches() : void
+  + updatePosition(watch: Watch) : void
+  + deleteWatch(watchId: number) : void
+}
+
+class Watch {
+  - watchId: number
+  - time: Time
+  - modeValue: number
+  - lightValue: boolean
+  - animate: Animate
+  - position: Point
+  - rotation: number
+  - scale: number
+  - timerRotationAround: NodeJS.Timer
+  - timerRotation: NodeJS.Timer
+  + getScale(): number
+  + getWatchId(): number
+  + getCurrentTime(): string
+  + toggleMode(): void
+  + toggleLight(): void
+  + increaseTime(): void
+  + getLightValue(): boolean
+  + getModeValue(): number
+  + reset(): void
+  + toggleTimeFormat(): void
+  + updateWatchDisplay(): { watchId: number; currentTime: string }
+  + getPosition(): Point
+  + getRotation(): number
+  + scaleUp(x: number, y: number): void
+  + scaleDown(x: number, y: number): void
+  + rotateSelf(angle: number, callback: () => void): void
+  + rotateAroundPoint(angle: number, X: number, Y: number, callback: () => void): void
+}
+
+class Time {
+  - _hour: number
+  - _minute: number
+  - _second: number
+  - _timeZone: number
+  - _timeFormat: string
+  - setTime(newDate: Date): void
+  - setTimeFormat(timeFormat: string): void
+  - addHours(hours: number): void
+  - addMinutes(minutes: number): void
+  + getTimeZone(): number
+  + getTimeFormat(): string
+  + getFormattedTime(): string
+  + updateTimeDisplay(): void
+}
+
+class Point {
+  - _x: number
+  - _y: number
+  + getX(): number
+  + getY(): number
+  + setX(x: number): void
+  + setY(y: number): void
+}
+
+class Vector {
+  - _x: number
+  - _y: number
+  + add(other: Vector): Vector
+  + subtract(other: Vector): Vector
+  + scaleBy(scalar: number): Vector
+  + invert(): Vector
+  + toVector(point: Point): Vector
+  + toPoint(): Point
+  + toArray(): number[]
+}
+
+class Matrix {
+  - _rows: number
+  - _cols: number
+  + getValueAt(row: number, col: number): number
+  + add(matrix: Matrix): Matrix
+  + subtract(matrix: Matrix): Matrix
+  + multiply(matrix: Matrix): Matrix
+  + determinant(): number
+  + minorOfMatrix(row: number, col: number): Matrix
+  + transpose(): Matrix
+  + inverse(): Matrix
+  + translate(vector: Vector): Matrix
+  + rotate(radian: number, axisX: number, axisY: number): Matrix
+  + scale(vector: Vector): Matrix
+}
+
+class Animate {
+  + translate(point: Point, translationPoint: Point): Matrix
+  + rotate(point: Point, radian : number, axisX: number, axisY: number): Point
+  + scale (point: Point, scalingVector: Vector): Point
+}
+
+WatchContainer o--> "1..*" Watch
+Watch *-- Time 
+Watch *-- Animate
+Watch o-- Point
+Watch --> Vector
+
+Vector --> Point
+Matrix --> Vector
+
+Animate *-- Point
+Animate *-- Vector
+Animate *-- Matrix
+
+
+@enduml

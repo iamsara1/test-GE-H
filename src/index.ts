@@ -1,5 +1,5 @@
 import './index.css';
-import { MyClass } from './example-unit';
+import { WatchContainer } from './app/class/WatchContainer.class';
+import  './app/animation/class/Matrix.class';
 
-const a = new MyClass(2);
-console.log('number is', a.get());
+const a = new WatchContainer();
